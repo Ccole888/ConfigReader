@@ -7,16 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class readconfig {
-    public static void main(String[] args) throws IOException {
-        HashMap<String, String> bruh = readconfigFile();
-        System.out.println(bruh);
 
-    }
-
-    public static HashMap<String, String> readconfigFile() throws IOException {
+    public static HashMap<String, String> readconfigFile(String filepath) throws IOException {
         HashMap<String, String> returnvalues = new HashMap<String, String>();
         List<List<String>> records = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("config.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split("\n");
